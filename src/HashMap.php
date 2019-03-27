@@ -24,7 +24,8 @@ class HashMap implements \Iterator
         return arrayKeyExists($key, $this->hashMap);
     }
 
-    function putIntoArray($key, $val) {
+    // Append to a key as an array entry
+    function append($key, $val) {
         if(!arrayKeyExists($key, $this->hashMap)) {
             $this->hashMap[$key] = [];
         }
