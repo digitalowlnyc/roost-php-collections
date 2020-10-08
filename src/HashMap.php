@@ -10,6 +10,8 @@ namespace Roost\Collections;
 
 class HashMap implements \Iterator
 {
+	use ArrayHelperTrait;
+
     private $hashMap = [];
 
     function put($key, $val) {
@@ -21,11 +23,11 @@ class HashMap implements \Iterator
     }
 
     function contains($key) {
-        return arrayKeyExists($key, $this->hashMap);
+        return $this->arrayKeyExists($key, $this->hashMap);
     }
 
     function putIntoArray($key, $val) {
-        if(!arrayKeyExists($key, $this->hashMap)) {
+        if(!$this->arrayKeyExists($key, $this->hashMap)) {
             $this->hashMap[$key] = [];
         }
 
